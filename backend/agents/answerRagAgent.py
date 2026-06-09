@@ -101,7 +101,6 @@ prompt_template = ChatPromptTemplate.from_messages([
 
 def AnswerRagAgent(query: str, vectorstore_name: str, k: int = 6):
     try:
-        # index_path = f"/home/piyush/DCIM/code/projects/DL/DLHackathon/backend/{vectorstore_name}"
         # # index_path = vectorstore_name
         # vectorstore = FAISS.load_local(index_path, embedder, allow_dangerous_deserialization=True)
         # docs = vectorstore.similarity_search(query, k=k)
@@ -123,7 +122,7 @@ def AnswerRagAgent(query: str, vectorstore_name: str, k: int = 6):
         generated_queries = generate_search_queries(query)
         print(f"🔎 Generated Queries: {generated_queries}")
 
-        index_path = f"/home/piyush/DCIM/code/projects/DL/DLHackathon/backend/{vectorstore_name}"
+        index_path = "faiss_vector_store"
         vectorstore = FAISS.load_local(index_path, embedder, allow_dangerous_deserialization=True)
 
         all_results = []
